@@ -10,6 +10,7 @@ editor: visual
 library(tidyverse)
 library(here)
 library(ggbeeswarm)
+library(ggExtra)
 ```
 
 ## Read in Data
@@ -41,9 +42,12 @@ mean_ice_cover
 #| fig-cap: Graph shows seasonal increases and decreases with a general decreasing trend over time. 
 explor_icecover <- ggplot(data = mean_ice_cover, aes(x = year4,
                                                      y = mean_ice_duration)) +
-  geom_line()
+  geom_point()
+
+ggMarginal(explor_icecover, type = "densigram")
 
 explor_icecover
+
 ```
 
 ```{r}
